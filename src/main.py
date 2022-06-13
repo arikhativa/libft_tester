@@ -41,20 +41,23 @@ import prints
 import tests
 
 # Globals
-ERROR					= -1
-SUCCESS					= 0
+ERROR					= False
+SUCCESS					= True
 IS_NORM_INSTALLED		= ERROR
 IS_VALGRIND_INSTALLED	= ERROR
+VALGRIND_OUTPUT			= "valgrind.txt"
+EXEC					= "a.out"
+USER_OUTPUT				= "user_output.txt"
 
 def main():
 	if (len(sys.argv) != 2):
 		prints.usage()
 		return
 
-	IS_NORM_INSTALLED = norm.is_norminette_installed()
-	IS_VALGRIND_INSTALLED = valgrind.is_valgrind_installed()
+	is_norm_installed = norm.is_norminette_installed()
+	is_valgrind_installed = valgrind.is_valgrind_installed()
 
-	tests.test_all(sys.argv[1])
+	tests.test_all(sys.argv[1], is_norm_installed, is_valgrind_installed)
 
 	
 	

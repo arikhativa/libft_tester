@@ -1,23 +1,34 @@
 #!/bin/python3
 
+import exec
 import norm
 import single_test
 import prints
-import os.path
+# import os.path
 from os import path
 
 def is_file(name: str) -> bool:
 	return path.exists(name)
 
-def test(func: single_test.testObject, path_to_proj) -> None:
-	path = "{p}/{name}.c"
-	if (is_file(path.format(p=path_to_proj, name=func.name))):
+def test(func: single_test.testObject, path_to_proj: str, is_norm: bool, is_valgrind: bool) -> None:
+	temp = "{p}/{name}.c"
+	path = temp.format(p=path_to_proj, name=func.name)
+
+	if (is_file(path) == False):
 		prints.no_file(func)
 		return
 	
-	if (norm.norm(func)):
-		prints.norm_error(func)
+	if (is_norm == True):
+		norm.norm(func.name, path)
 
+	# if (is_valgrind == True):
+	# 	prints.exec_error(func)
+
+
+	# if (is_valgrind == False & exec.exec(path) == False):
+	# 	prints.exec_error(func)
+		
+	
 	
 		
 

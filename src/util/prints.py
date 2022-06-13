@@ -2,32 +2,30 @@
 
 import single_test
 
-def no_file(f: single_test.testObject):
-	print("Error: can't find file " + f.name)
-
-def usage():
+def usage() -> None:
 	print("libft-tester: illegal option")
 	print("usage: make test PROJ=<PROJECT_PATH>")
 
-# print_start_project()
-# {
-# 	project_name=$1
+def norm_error(name: str) -> None:
+	print(name + " Error: norm error ")
 
-# 	printf "\n -- Testing project $project_name -- \n\n"
-# }
+def no_file(f: single_test.testObject) -> None:
+	print("Error: can't find file " + f.name)
+
+def exec_error(f: single_test.testObject) -> None:
+	# vaild_res_path=$2
+	# user_res_path=$3
+	
+	print("exec_error")
+
+def print_start_project():
+	print("Libft")
 
 # print_compile_error()
 # {
 # 	test_name=$1
 
 # 	printf "$test_name\t-\tFailed to compile\n" 
-# }
-
-# print_norm_error()
-# {
-# 	test_name=$1
-
-# 	printf "$test_name\t-\tNot following the norm\n" 
 # }
 
 # print_valgrind_error()
@@ -51,18 +49,6 @@ def usage():
 # 	printf "Can't find $test_name\n" 
 # }
 
-# print_fail()
-# {
-# 	test_name=$1
-# 	vaild_res_path=$2
-# 	user_res_path=$3
-	
-# 	printf "$test_name\t-\tFail\n\n"
-# 	printf "Expected output:\n"
-# 	printf "%s$(cat $vaild_res_path)\n\n"
-# 	printf "User  output:\n"
-# 	printf "%s$(cat $user_res_path)\n"
-# }
 
 # print_success()
 # {

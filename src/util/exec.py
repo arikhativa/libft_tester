@@ -1,10 +1,10 @@
 
 import subprocess
 
-def exec(exec_path):
+def exec(exec_path: str) -> bool:
 	process = subprocess.Popen(exec_path, stdout=subprocess.PIPE)
 	_, error = process.communicate()
 	if (error != None):
 		print(error)
-		return ERROR
-	return SUCCESS
+		return False
+	return True
