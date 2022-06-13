@@ -1,8 +1,14 @@
 
-IMG=arikhativa/pool-tester:1.0.1
-NAME=pool-tester
-CLOUD_IMG=arikhativa/pool-tester:1.0.1
-WORKDIR=/home
+NAME=libft
+IMG=arikhativa/libft-tester:0.0.1
+
+MAKEFILE_PATH=$(abspath $(lastword $(MAKEFILE_LIST)))
+CURRENT_DIR=$(notdir $(patsubst %/,%,$(dir $(MAKEFILE_PATH))))
+FULL_PATH=$(shell pwd)
+
+SRC=$(FULL_PATH)/src
+
+
 
 .PHONY: build push run stop enter test valgrind review review/valgrind
 
@@ -25,7 +31,7 @@ enter:
 	docker exec -it $(NAME) bash
 
 test:
-	./test.sh $(PROJ) ~
+	python3 -B $(SRC)/main.py
 
 valgrind:
 	docker exec -it $(NAME) $(WORKDIR)/pool-tester/test.sh $(PROJ) $(WORKDIR)

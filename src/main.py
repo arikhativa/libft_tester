@@ -28,10 +28,18 @@
 # is_norminette_installed
 # is_valgrind_installed
 
+
 import sys
+
+import src
+import print
+
 
 def main():
 	if (len(sys.argv) != 2):
-		print("Usage: need path to libft")
+		print.print_usage()
+		return
+	
+	
 
 main()
