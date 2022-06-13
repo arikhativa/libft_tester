@@ -1,7 +1,7 @@
 #!/bin/python3
 
 def print_usage():
-	print ("pool-tester: illegal option")
+	print ("libft-tester: illegal option")
 	print ("usage: make test PROJ=<PROJECT_NAME>")
 
 # print_start_project()

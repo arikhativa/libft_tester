@@ -33,12 +33,16 @@ import sys
 
 import src
 import print
+import strings
 
 
 def main():
 	if (len(sys.argv) != 2):
 		print.print_usage()
 		return
+	
+	strings.test_strings()
+
 	
 	
 
