@@ -1,8 +1,13 @@
 #!/bin/python3
 
-def print_usage():
-	print ("libft-tester: illegal option")
-	print ("usage: make test PROJ=<PROJECT_NAME>")
+import single_test
+
+def no_file(f: single_test.testObject):
+	print("Error: can't find file " + f.name)
+
+def usage():
+	print("libft-tester: illegal option")
+	print("usage: make test PROJ=<PROJECT_PATH>")
 
 # print_start_project()
 # {
@@ -30,15 +35,6 @@ def print_usage():
 # 	test_name=$1
 
 # 	printf "$test_name\t-\tValgrind found a memory leak\n" 
-# }
-
-# print_file_error()
-# {
-# 	local test_name=$1
-# 	local expect=$2
-# 	local found=$3
-
-# 	printf "$test_name\t-\tExpected to find $expect files, found $found\n" 
 # }
 
 # print_no_exec()

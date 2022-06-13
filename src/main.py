@@ -29,19 +29,32 @@
 # is_valgrind_installed
 
 
+from sre_constants import SUCCESS
 import sys
 
-import src
-import print
-import strings
+sys.path.append("./src/util")
+sys.path.append("./src/tests")
 
+import norm
+import valgrind
+import prints
+import tests
+
+# Globals
+ERROR					= -1
+SUCCESS					= 0
+IS_NORM_INSTALLED		= ERROR
+IS_VALGRIND_INSTALLED	= ERROR
 
 def main():
 	if (len(sys.argv) != 2):
-		print.print_usage()
+		prints.usage()
 		return
-	
-	strings.test_strings()
+
+	IS_NORM_INSTALLED = norm.is_norminette_installed()
+	IS_VALGRIND_INSTALLED = valgrind.is_valgrind_installed()
+
+	tests.test_all(sys.argv[1])
 
 	
 	

@@ -31,7 +31,7 @@ enter:
 	docker exec -it $(NAME) bash
 
 test:
-	python3 -B $(SRC)/main.py REMOVE
+	python3 -B $(SRC)/main.py $(PROJ)
 
 valgrind:
 	docker exec -it $(NAME) $(WORKDIR)/pool-tester/test.sh $(PROJ) $(WORKDIR)
